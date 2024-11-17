@@ -1,18 +1,26 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { LandingPageComponent } from 'src/pages/landing-page/landing-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialsModule } from './shared/angular-materials/angular-materials/angular-materials.module';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [LandingPageComponent]
 })
 export class AppModule { }

@@ -1,0 +1,40 @@
+<div class="main-container">
+    <div id="map"></div>
+    <div class="bounds" *ngIf="isLoaded">
+        <h3>Boundaries             
+            <button mat-icon-button extended (click)="addMapClickListener()">
+            <mat-icon>add</mat-icon>
+        </button></h3>
+        <div class="bounds-container">
+            <div *ngIf="isAddToggleEnabled">
+                <form [formGroup]="boundariesForm">
+                <mat-form-field>
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="fullName">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Marker 1 (Select from Map)</mat-label>
+                    <input matInput formControlName="marker1" readonly>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Marker 2 (Select from Map)</mat-label>
+                    <input matInput formControlName="marker2" readonly>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Marker 3 (Select from Map)</mat-label>
+                    <input matInput formControlName="marker3" readonly>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Marker 4 (Select from Map)</mat-label>
+                    <input matInput formControlName="marker4" readonly>
+                </mat-form-field>
+                </form>
+            </div>
+            <mat-list *ngIf="!isAddToggleEnabled">
+                <ng-container *ngFor="let bound of boundaries">
+                <mat-list-item>Bound</mat-list-item>
+                </ng-container>
+            </mat-list>
+        </div>
+    </div>
+</div>
